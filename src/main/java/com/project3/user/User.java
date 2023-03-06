@@ -17,4 +17,12 @@ public class User {
         String email;
         Date created_at;
         Date updated_at;
+
+        public User(Integer id, String name, String email, Date created_at, Date updated_at) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+                this.created_at = created_at;
+                this.updated_at = updated_at;
+        }
 }
