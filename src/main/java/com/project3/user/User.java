@@ -1,17 +1,17 @@
 package com.project3.user;
 
 import jakarta.persistence.Entity;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class User {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         Integer id;
         String name;
         String email;

@@ -1,14 +1,8 @@
 package com.project3.messages;
 
-import jakarta.persistence.Entity;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class MessageRequest {
     Integer rental_id;
     Integer user_id;
