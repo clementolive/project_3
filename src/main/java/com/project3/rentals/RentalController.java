@@ -28,7 +28,7 @@ public class RentalController {
 
     @PutMapping(path = "/api/rentals/{id}")
     public RentalResponse updateRental(@PathVariable("id") Integer rentalId) {
-        RentalResponse rentalResponse = new RentalResponse();
+        RentalResponse rentalResponse = new RentalResponse("Rental updated !");
 
         return rentalResponse;
     }

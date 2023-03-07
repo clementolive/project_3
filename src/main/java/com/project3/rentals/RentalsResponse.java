@@ -8,13 +8,18 @@ public class RentalsResponse {
 
     public RentalsResponse(){
         rentals = new Rental[3];
-        Rental r = new Rental(1, "test house 1", 432, 300,
+        Rental r = new Rental(
+                1,
+                "test house 1",
+                432,
+                300,
                 "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
                 "Lorem ipsum dolor sit amet.",
                 1,
                 "2012/12/02",
                 "2014/12/02");
-        Rental r2 = new Rental(2,
+        Rental r2 = new Rental(
+                1,
                 "test house 2",
                 154,
                 200,
@@ -23,7 +28,8 @@ public class RentalsResponse {
                 2,
                 "2012/12/02",
                 "2014/12/02");
-        Rental r3 = new Rental(3,
+        Rental r3 = new Rental(
+                3,
                 "test house 3",
                 234,
                 100,

@@ -30,7 +30,7 @@ public class RegisterController {
 
     @GetMapping("/api/auth/me")
     public User me(){
-        User user = new User(2, "Anthony", "ant@gmail.com", new Date(), new Date());
+        User user = new User(1, "Test TEST", "test@test.com", new Date(), new Date());
         return user;
     }
 }
