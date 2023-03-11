@@ -1,6 +1,6 @@
 package com.project3.controllers;
 
-import com.project3.entities.MessageResponse;
+import com.project3.models.MessageResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 

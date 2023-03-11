@@ -1,4 +1,4 @@
-package com.project3.entities;
+package com.project3.models;
 
 import com.project3.entities.Rental;
 import lombok.Data;

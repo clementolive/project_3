@@ -1,6 +1,6 @@
 package com.project3.controllers;
 
-import com.project3.entities.AuthSuccess;
+import com.project3.models.AuthSuccess;
 import com.project3.entities.User;
 import org.springframework.web.bind.annotation.*;
 

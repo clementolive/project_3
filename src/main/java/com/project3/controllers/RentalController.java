@@ -1,8 +1,8 @@
 package com.project3.controllers;
 
 import com.project3.entities.Rental;
-import com.project3.entities.RentalResponse;
-import com.project3.entities.RentalsResponse;
+import com.project3.models.RentalResponse;
+import com.project3.models.RentalsResponse;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
