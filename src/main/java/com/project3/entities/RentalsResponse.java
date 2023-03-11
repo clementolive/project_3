@@ -1,5 +1,6 @@
-package com.project3.rentals;
+package com.project3.entities;
 
+import com.project3.entities.Rental;
 import lombok.Data;
 
 @Data

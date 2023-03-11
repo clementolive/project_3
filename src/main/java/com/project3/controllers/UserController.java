@@ -1,7 +1,6 @@
-package com.project3.user;
+package com.project3.controllers;
 
-import com.project3.rentals.RentalResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.project3.entities.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;

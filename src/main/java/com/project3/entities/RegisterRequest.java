@@ -1,4 +1,4 @@
-package com.project3.auth;
+package com.project3.entities;
 
 public class RegisterRequest {
     String email;

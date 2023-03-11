@@ -1,4 +1,4 @@
-package com.project3.rentals;
+package com.project3.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

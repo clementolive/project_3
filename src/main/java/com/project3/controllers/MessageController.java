@@ -1,6 +1,6 @@
-package com.project3.messages;
+package com.project3.controllers;
 
-import com.project3.auth.AuthSuccess;
+import com.project3.entities.MessageResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +13,7 @@ public class MessageController {
 
         //Response
         MessageResponse messageResponse = new MessageResponse();
-        messageResponse.message = "Message send with success";
+        messageResponse.setMessage("Message send with success");
         return messageResponse;
     }
 }

@@ -1,7 +1,7 @@
-package com.project3.auth;
+package com.project3.controllers;
 
-import com.project3.user.User;
-import org.springframework.http.HttpStatus;
+import com.project3.entities.AuthSuccess;
+import com.project3.entities.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -17,14 +17,14 @@ public class RegisterController {
     @PostMapping("/api/auth/register")
     public AuthSuccess tryToRegister(){
         AuthSuccess authSuccess = new AuthSuccess();
-        authSuccess.token = "jwt";
+        authSuccess.setToken("jwt");
         return authSuccess;
     }
 
     @PostMapping("/api/auth/login")
     public AuthSuccess tryToLogin(){
         AuthSuccess authSuccess = new AuthSuccess();
-        authSuccess.token = "jwt";
+        authSuccess.setToken("jwt");
         return authSuccess;
     }
 

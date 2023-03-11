@@ -1,6 +1,8 @@
-package com.project3.rentals;
+package com.project3.controllers;
 
-import org.springframework.http.HttpStatus;
+import com.project3.entities.Rental;
+import com.project3.entities.RentalResponse;
+import com.project3.entities.RentalsResponse;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

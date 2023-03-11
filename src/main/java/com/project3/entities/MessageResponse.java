@@ -1,4 +1,4 @@
-package com.project3.messages;
+package com.project3.entities;
 
 import lombok.Data;
 
