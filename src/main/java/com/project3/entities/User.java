@@ -22,4 +22,12 @@ public class User {
         String email;
         Date created_at;
         Date updated_at;
+
+        public User(String name, String email) {
+                this.id = 1;
+                this.name = name;
+                this.email = email;
+                this.created_at = new Date();
+                this.updated_at = new Date();
+        }
 }
