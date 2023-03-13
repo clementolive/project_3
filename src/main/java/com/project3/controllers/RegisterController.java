@@ -1,5 +1,7 @@
 package com.project3.controllers;
 
+import com.project3.dtos.UserDTO;
+import com.project3.mappers.UserMapper;
 import com.project3.models.AuthSuccess;
 import com.project3.entities.User;
 import com.project3.models.RegisterRequest;
@@ -15,6 +17,8 @@ public class RegisterController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserMapper userMapper;
     @GetMapping("/")
     public String hello(){
         return "hello";
@@ -40,6 +44,7 @@ public class RegisterController {
     @GetMapping("/api/auth/me")
     public User me(){
         User user = new User(1, "Test TEST", "test@test.com", new Date(), new Date());
+        UserDTO userDTO = userMapper.userToUserDTO(user);
         return user;
     }
 }

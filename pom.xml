@@ -25,6 +25,12 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+
 		<!--springfox dependencies for api documentations in swagger -->
 		<dependency>
 			<groupId>io.springfox</groupId>
