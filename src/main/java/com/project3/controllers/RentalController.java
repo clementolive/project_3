@@ -5,6 +5,8 @@ import com.project3.models.RentalResponse;
 import com.project3.models.RentalsResponse;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 public class RentalController {
 
@@ -22,8 +24,8 @@ public class RentalController {
                 "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
                 "Lorem ipsum dolor sit amet.",
                 1,
-                "2012/12/02",
-                "2014/12/02");
+                new Date(),
+                new Date());
 
         return rental;
     }

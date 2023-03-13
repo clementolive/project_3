@@ -13,38 +13,33 @@ import java.util.Date;
 
 @RestController
 public class RegisterController {
-
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserMapper userMapper;
-    @GetMapping("/")
-    public String hello(){
-        return "hello";
-    }
-
     @PostMapping("/api/auth/register")
     public AuthSuccess tryToRegister(@RequestBody RegisterRequest request){
+        // Check if used name/email here
+
         AuthSuccess authSuccess = new AuthSuccess();
         authSuccess.setToken("jwt");
 
-        User user = new User(request.getName(), request.getEmail());
-        userService.addNewStudent(user);
+        UserDTO user = new UserDTO(request.getName(), request.getEmail());
+        userService.addNewUser(user);
         return authSuccess;
     }
 
     @PostMapping("/api/auth/login")
     public AuthSuccess tryToLogin(){
+        //Check if mail exists, correct password here
+
         AuthSuccess authSuccess = new AuthSuccess();
         authSuccess.setToken("jwt");
         return authSuccess;
     }
 
     @GetMapping("/api/auth/me")
-    public User me(){
-        User user = new User(1, "Test TEST", "test@test.com", new Date(), new Date());
-        UserDTO userDTO = userMapper.userToUserDTO(user);
-        return user;
+    public UserDTO me(){
+        UserDTO userDTO = new UserDTO("Test TEST", "test@test.com");
+        return userDTO;
     }
 }

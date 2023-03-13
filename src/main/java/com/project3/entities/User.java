@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class User {
         @Id
-        //@GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         Integer id;
         String name;
         String email;
@@ -24,7 +24,6 @@ public class User {
         Date updated_at;
 
         public User(String name, String email) {
-                this.id = 1;
                 this.name = name;
                 this.email = email;
                 this.created_at = new Date();
