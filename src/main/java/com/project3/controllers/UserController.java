@@ -1,6 +1,6 @@
 package com.project3.controllers;
 
-import com.project3.entities.User;
+import com.project3.dtos.UserDTO;
 import com.project3.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +14,8 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/api/user/{id}")
-    public User getUser(@PathVariable("id") Integer userId){
+    public UserDTO getUser(@PathVariable("id") Long userId){
 
-        return new User(2, "Owner name", "owner@owner.com", new Date(), new Date());
+        return userService.getUserById(userId);
     }
-
-
-
-    @PostMapping("/api/user/{id}")
-    public User registerUser(@PathVariable("id") Integer userId){
-
-        return new User(2, "Owner name", "owner@owner.com", new Date(), new Date());
-    }
-
 }

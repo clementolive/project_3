@@ -18,15 +18,18 @@ public class User {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         Integer id;
-        String name;
         String email;
+        String name;
+        String password;
         Date created_at;
         Date updated_at;
 
-        public User(String name, String email) {
-                this.name = name;
+        public User(String email, String name, String password) {
                 this.email = email;
+                this.name = name;
+                this.password = password;
                 this.created_at = new Date();
                 this.updated_at = new Date();
         }
+
 }
