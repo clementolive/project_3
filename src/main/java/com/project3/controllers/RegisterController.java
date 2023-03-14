@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     UserService userService;
-
+    @CrossOrigin
     @PostMapping("/api/auth/register")
     public AuthSuccess tryToRegister(@RequestBody RegisterRequest request){
         AuthSuccess authSuccess = new AuthSuccess();
@@ -29,7 +29,7 @@ public class RegisterController {
 
         return authSuccess;
     }
-
+    @CrossOrigin
     @PostMapping("/api/auth/login")
     public AuthSuccess tryToLogin(){
         //Check if mail exists, correct password here

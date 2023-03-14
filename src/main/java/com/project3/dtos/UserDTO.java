@@ -16,14 +16,15 @@ public class UserDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
     String email;
+    String name;
     Date created_at;
     Date updated_at;
 
-    public UserDTO(String name, String email) {
-        this.name = name;
+    public UserDTO(String email, String name) {
+
         this.email = email;
+        this.name = name;
         this.created_at = new Date();
         this.updated_at = new Date();
     }

@@ -32,6 +32,13 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<!--For enabling CORS policy -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!--springfox dependencies for api documentations in swagger -->
 		<dependency>
 			<groupId>io.springfox</groupId>
