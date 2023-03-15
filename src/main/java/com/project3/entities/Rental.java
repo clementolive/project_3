@@ -6,11 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
