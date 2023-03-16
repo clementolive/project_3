@@ -1,9 +1,9 @@
-package com.project3.models;
+package com.project3.dtos;
 
 import lombok.Data;
 
 @Data
-public class MessageRequest {
+public class MessageRequestDTO {
     Integer rental_id;
     Integer user_id;
     String message;

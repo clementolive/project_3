@@ -6,6 +6,8 @@ import com.project3.repositories.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RentalService {
     @Autowired
@@ -17,7 +19,8 @@ public class RentalService {
 
     public RentalsResponse getRentals() {
        RentalsResponse rentalsResponse = new RentalsResponse();
-       //rentalsResponse.setRentals((Rental[]) rentalRepository.findAll().toArray());
+       Rental[] rentalList = rentalRepository.findAll().toArray(new Rental[0]);
+       rentalsResponse.setRentals(rentalList);
        return rentalsResponse;
     }
 }

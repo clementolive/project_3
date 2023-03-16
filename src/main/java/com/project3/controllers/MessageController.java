@@ -1,6 +1,6 @@
 package com.project3.controllers;
 
-import com.project3.models.MessageRequest;
+import com.project3.dtos.MessageRequestDTO;
 import com.project3.models.MessageResponse;
 import com.project3.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ public class MessageController {
     MessageService messageService;
 
     @PostMapping("/api/messages")
-    public MessageResponse send(@RequestBody MessageRequest request){
-        //Send message here (service -> repo -> DB)
+    public MessageResponse send(@RequestBody MessageRequestDTO request){
+        //Sending message (service -> repo -> DB)
         messageService.sendMessage(request);
 
         //Response
