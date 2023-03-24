@@ -1,5 +1,6 @@
 package com.project3.controllers;
 
+import com.project3.dtos.RentalDTO;
 import com.project3.entities.Rental;
 import com.project3.models.RentalResponse;
 import com.project3.models.RentalsResponse;
@@ -16,23 +17,31 @@ public class RentalController {
 
     @GetMapping("/api/rentals")
     public RentalsResponse getRentals() {
-        //RentalsResponse rentalsResponse = new RentalsResponse();
-
         return rentalService.getRentals();
     }
 
-    //TODO : We must differentiate here between update and detail in rentals/:id
     @GetMapping(path = "/api/rentals/{id}")
     public Rental detailRental(@PathVariable("id") Long rentalId) {
         return rentalService.getDetailRental(rentalId);
     }
 
-    //TODO : Code for Updating a rental
+    //TODO : Code for Updating a rental (from FormData)
     @PutMapping(path = "/api/rentals/{id}")
-    public RentalResponse updateRental(@PathVariable("id") Integer rentalId) {
-        RentalResponse rentalResponse = new RentalResponse("Rental updated !");
+    public RentalResponse updateRental(@PathVariable("id") Long rentalId) {
+        Rental rental = rentalService.getDetailRental(rentalId);
 
+
+        RentalResponse rentalResponse = new RentalResponse("Rental updated !");
         return rentalResponse;
     }
+
+    //TODO : Code for Creating a rental (from FormData)
+    @PostMapping(path = "/api/rentals/create")
+    public RentalResponse createDental(@ModelAttribute RentalDTO rentalDTO){
+
+        RentalResponse rentalResponse = new RentalResponse("Rental updated !");
+        return rentalResponse;
+    }
+
 
 }

@@ -17,9 +17,10 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void addNewUser(RegisterRequest request) {
+    public User addNewUser(RegisterRequest request) {
         User user = new User(request.getEmail(), request.getName(), request.getPassword());
         userRepository.save(user);
+        return user;
     }
 
     public UserDTO getUserById(Long id){
@@ -35,6 +36,8 @@ public class UserService {
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
     }
+
+    public User findByName(String  name){return  userRepository.findByName(name);}
 
 }
 

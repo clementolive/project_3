@@ -19,7 +19,7 @@ public class RentalsConfiguration {
                     432,
                     300,
                     "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
-                    "Lorem ipsum dolor sit amet.",
+                    "Description 1",
                     1,
                     new Date(),
                     new Date());
@@ -29,7 +29,7 @@ public class RentalsConfiguration {
                     154,
                     200,
                     "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
-                    "Lorem ipsum dolor sit amet, varius erat.",
+                    "Description 2",
                     2,
                     new Date(),
                     new Date());
@@ -39,7 +39,7 @@ public class RentalsConfiguration {
                     234,
                     100,
                     "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
-                    "Lorem ipsum dolor sit amet, varius erat.",
+                    "Description 3",
                     3,
                     new Date(),
                     new Date());

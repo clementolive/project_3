@@ -22,7 +22,6 @@ public class UserDTO {
     Date updated_at;
 
     public UserDTO(String email, String name) {
-
         this.email = email;
         this.name = name;
         this.created_at = new Date();
