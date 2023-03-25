@@ -35,10 +35,10 @@ public class RegisterController {
 
     @GetMapping("/api/auth/me")
     public UserDTO me(){
-        //UserDTO user_test = new UserDTO( "test@test.com", "Test TEST");
         UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User my_user = userDetailsService.loadUserByUsername(user.getUsername());
 
-        return userMapper.userDetailsToUserDTO(user);
+        return userMapper.userToUserDTO(my_user);
     }
 
     @CrossOrigin

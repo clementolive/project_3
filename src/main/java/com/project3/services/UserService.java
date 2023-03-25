@@ -33,16 +33,6 @@ public class UserService {
         return userDTO;
     }
 
-    public boolean existByName(String name) {
-        return userRepository.existsByname(name);
-    }
-
-    public boolean existsByEmail(String email) {
-        return userRepository.existsByEmail(email);
-    }
-
-    public User findByName(String  name){return  userRepository.findByName(name);}
-
 }
 
 
