@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("select count(p) = 1 from User p where email = ?1")
     public boolean existsByEmail(String email);
 
-    org.springframework.security.core.userdetails.User findByEmail(String email);
+    public User findByEmail(String email);
 
     public User findByName(String name);
 }

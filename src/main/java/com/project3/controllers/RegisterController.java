@@ -1,5 +1,6 @@
 package com.project3.controllers;
 import com.project3.auth.JwtTokenUtil;
+import com.project3.auth.JwtUserDetailsService;
 import com.project3.dtos.UserDTO;
 import com.project3.entities.User;
 import com.project3.models.AuthSuccess;
@@ -7,6 +8,12 @@ import com.project3.models.LoginRequest;
 import com.project3.models.RegisterRequest;
 import com.project3.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +21,21 @@ public class RegisterController {
     @Autowired
     UserService userService;
 
+    @Autowired // Loads user from DB
+    JwtUserDetailsService userDetailsService;
+
     @Autowired
     JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @GetMapping("/api/auth/me")
+    public UserDTO me(){
+        UserDTO user = new UserDTO( "test@test.com", "Test TEST");
+        //UserDTO user = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return user;
+    }
 
     @CrossOrigin
     @PostMapping("/api/auth/register")
@@ -30,18 +50,30 @@ public class RegisterController {
     }
     @CrossOrigin
     @PostMapping("/api/auth/login")
-    public AuthSuccess tryToLogin(@RequestBody LoginRequest request){
-        //Check if mail exists, correct password here
+    public AuthSuccess tryToLogin(@RequestBody LoginRequest authenticationRequest) throws Exception {
+        // Check if mail exists, correct password here
+        // The link between email and internal "username" is here
+        authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+
+        final UserDetails user = userDetailsService
+                .loadUserByUsername(authenticationRequest.getEmail());
+
+        final String token = jwtTokenUtil.generateToken(user);
 
         AuthSuccess authSuccess = new AuthSuccess();
-        authSuccess.setToken("jwt");
+        authSuccess.setToken(token);
         return authSuccess;
     }
 
-    @GetMapping("/api/auth/me")
-    public UserDTO me(){
-        UserDTO userDTO = new UserDTO( "test@test.com", "Test TEST");
-        return userDTO;
+    private void authenticate(String username, String password) throws Exception {
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        } catch (DisabledException e) {
+            throw new Exception("USER_DISABLED", e);
+        } catch (BadCredentialsException e) {
+            throw new Exception("INVALID_CREDENTIALS", e);
+        }
     }
+
 
 }
