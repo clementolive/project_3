@@ -3,6 +3,7 @@ import com.project3.auth.JwtTokenUtil;
 import com.project3.auth.JwtUserDetailsService;
 import com.project3.dtos.UserDTO;
 import com.project3.entities.User;
+import com.project3.mappers.UserMapper;
 import com.project3.models.AuthSuccess;
 import com.project3.models.LoginRequest;
 import com.project3.models.RegisterRequest;
@@ -26,15 +27,18 @@ public class RegisterController {
 
     @Autowired
     JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    UserMapper userMapper;
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @GetMapping("/api/auth/me")
     public UserDTO me(){
-        UserDTO user = new UserDTO( "test@test.com", "Test TEST");
-        //UserDTO user = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return user;
+        //UserDTO user_test = new UserDTO( "test@test.com", "Test TEST");
+        UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return userMapper.userDetailsToUserDTO(user);
     }
 
     @CrossOrigin

@@ -3,6 +3,7 @@ import com.project3.dtos.UserDTO;
 import com.project3.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -12,4 +13,7 @@ public interface UserMapper {
     UserDTO userToUserDTO(User user);
     
     User userDTOToUser(UserDTO userDTO);
+
+    @Mapping(target="email", source="user.username")
+    UserDTO userDetailsToUserDTO(UserDetails user);
 }
