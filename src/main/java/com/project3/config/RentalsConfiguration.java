@@ -30,7 +30,7 @@ public class RentalsConfiguration {
                     200,
                     "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
                     "Description 2",
-                    2,
+                    1,
                     new Date(),
                     new Date());
             Rental r3 = new Rental(
@@ -40,7 +40,7 @@ public class RentalsConfiguration {
                     100,
                     "https://blog.technavio.org/wp-content/uploads/2018/12/Online-House-Rental-Sites.jpg",
                     "Description 3",
-                    3,
+                    1,
                     new Date(),
                     new Date());
             rentalRepository.saveAll(List.of(r, r2, r3));

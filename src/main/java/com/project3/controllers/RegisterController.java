@@ -35,8 +35,8 @@ public class RegisterController {
 
     @GetMapping("/api/auth/me")
     public UserDTO me(){
-        UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User my_user = userDetailsService.loadUserByUsername(user.getUsername());
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User my_user = userDetailsService.loadUserByUsername(username);
 
         return userMapper.userToUserDTO(my_user);
     }
