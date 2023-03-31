@@ -15,6 +15,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,6 +30,9 @@ public class RegisterController {
     JwtTokenUtil jwtTokenUtil;
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -61,6 +65,11 @@ public class RegisterController {
 
         final UserDetails user = userDetailsService
                 .loadUserByUsername(authenticationRequest.getEmail());
+
+        if(!encoder.matches(authenticationRequest.getPassword(), user.getPassword())){
+            throw new BadCredentialsException("bad credentials");
+        }
+
 
         final String token = jwtTokenUtil.generateToken(user);
 

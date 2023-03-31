@@ -34,9 +34,15 @@ public class RentalController {
         //First we need to save the image from the original post
         Rental rental_for_picture = rentalService.getDetailRental(Long.parseLong(id));
 
-        //Then we add the picture to a new rental and save it.
-        rental.setPicture(rental_for_picture.getPicture());
-        RentalResponse response = rentalService.save(rental);
+        rental_for_picture.setName(rental.getName());
+        rental_for_picture.setPrice(rental.getPrice());
+        rental_for_picture.setSurface(rental.getSurface());
+        rental_for_picture.setDescription(rental.getDescription());
+
+        rental_for_picture.setUpdated_at(new Date());
+
+
+        RentalResponse response = rentalService.save(rental_for_picture);
         return response;
     }
 
@@ -48,6 +54,8 @@ public class RentalController {
         // So we need to create a new Rental and add ModelAttribute parameters
         // name - surface - price - (picture if creating) - description - owner_id
         Rental new_rental = rentalMapper.RentalDTOToRental(rentalDTO);
+        //We also add a picture
+        new_rental.setPicture(rentalDTO.getPicture());
 
         RentalResponse response = rentalService.save(new_rental);
         return response;

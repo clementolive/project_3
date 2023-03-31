@@ -22,8 +22,8 @@ public class UserService {
     PasswordEncoder encoder;
 
     public User addNewUser(RegisterRequest request) {
-       // User user = new User(request.getEmail(), request.getName(), encoder.encode(request.getPassword()));
-        User user = new User(request.getEmail(), request.getName(),request.getPassword());
+        User user = new User(request.getEmail(), request.getName(), encoder.encode(request.getPassword()));
+        //User user = new User(request.getEmail(), request.getName(),request.getPassword());
         userRepository.save(user);
         return user;
     }
