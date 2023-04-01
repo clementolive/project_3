@@ -6,7 +6,6 @@ import com.project3.mappers.UserMapper;
 import com.project3.models.RegisterRequest;
 import com.project3.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,6 @@ public class UserService {
 
     @Autowired
     UserMapper userMapper;
-
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -23,7 +21,6 @@ public class UserService {
 
     public User addNewUser(RegisterRequest request) {
         User user = new User(request.getEmail(), request.getName(), encoder.encode(request.getPassword()));
-        //User user = new User(request.getEmail(), request.getName(),request.getPassword());
         userRepository.save(user);
         return user;
     }

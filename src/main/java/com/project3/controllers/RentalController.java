@@ -6,31 +6,35 @@ import com.project3.mappers.RentalMapper;
 import com.project3.models.RentalResponse;
 import com.project3.models.RentalsResponse;
 import com.project3.services.RentalService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
 
 @RestController
 public class RentalController {
     @Autowired
     RentalService rentalService;
-
     @Autowired
     RentalMapper rentalMapper;
 
+    @Operation(summary = "Get all rentals", description = "This get all the rentals in database to display them on a page.", tags = "Get")
     @GetMapping("/api/rentals")
     public RentalsResponse getRentals() {
         return rentalService.getRentals();
     }
 
+    @Operation(summary = "Get a specific rental", description = "Gets a specific rental from its ID to display detailed informations about it.", tags = "Get")
     @GetMapping(path = "/api/rentals/{id}")
-    public Rental detailRental(@PathVariable("id") Long rentalId) {
+    public Rental detailRental(@Parameter(description = "A rental id") @PathVariable("id") Long rentalId) {
         return rentalService.getDetailRental(rentalId);
     }
 
+    @Operation(summary = "Updates a rental", description = "Updates a rental updating with name, price, surface and description.", tags = "Put")
     @PutMapping(path = "/api/rentals/{id}")
-    public RentalResponse updateRental(@ModelAttribute Rental rental, @PathVariable String id) {
+    public RentalResponse updateRental(@ModelAttribute Rental rental,
+                                       @Parameter(description = "The id of the rental to update") @PathVariable String id) {
         //First we need to save the image from the original post
         Rental rental_for_picture = rentalService.getDetailRental(Long.parseLong(id));
 
@@ -46,7 +50,8 @@ public class RentalController {
         return response;
     }
 
-    // This form also adds an image (no image upload when updating)
+    @Operation(summary = "Creates a rental", description = "Creates a new rental to display, with name, surface, price, description and picture.",
+            tags = "Post")
     @PostMapping(path = "/api/rentals/create")
     public RentalResponse createDental(@ModelAttribute RentalDTO rentalDTO){
 
@@ -57,8 +62,7 @@ public class RentalController {
         //We also add a picture
         new_rental.setPicture(rentalDTO.getPicture());
 
-        RentalResponse response = rentalService.save(new_rental);
-        return response;
+        return rentalService.save(new_rental);
     }
 
 

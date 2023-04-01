@@ -12,11 +12,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-
-
 import io.jsonwebtoken.ExpiredJwtException;
 
-/* We compare user in Database with User field in JWT token */
+/** This filter compare user from Database with User field from JWT token.
+ * Then JwtTokenUtil can validate or not the token. */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 

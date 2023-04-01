@@ -1,12 +1,10 @@
 package com.project3.config;
 
-
 import com.project3.auth.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,6 +14,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+/** This security configuration allows access to login and register pages, and Swagger documentation.
+ * api/auth/me is also needed in frontend logic.
+ * All the other requests need JWT authentication.
+ */
 
 @Configuration
 @EnableWebSecurity
@@ -39,16 +42,9 @@ public class SecurityConfiguration  {
                                 .requestMatchers("/api/auth/login",
                                         "/api/auth/register",
                                         "/api/auth/me",
-                                        "/v2/api-docs",
-                                        "/v3/api-docs/**",
-                                        "/swagger-ui.html",
-                                        "/swagger-ui/**",
-                                        "/swagger-resources",
-                                        "/swagger-resources/**",
 
-                                        "/configuration/ui",
-                                        "/configuration/security",
-                                        "/webjars/**"
+                                        "/v3/api-docs/**",
+                                        "/swagger-ui/**"
                                         ).permitAll()
                                 // all other requests need to be authenticated
                                 .anyRequest().authenticated().and()

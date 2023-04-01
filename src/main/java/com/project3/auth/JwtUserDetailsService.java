@@ -5,9 +5,9 @@ import com.project3.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/** This service checks username in database to validate credentials on login */
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
