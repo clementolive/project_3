@@ -21,7 +21,7 @@ public class RentalController {
     RentalService rentalService;
     @Autowired
     RentalMapper rentalMapper;
-
+    @Autowired
     JwtUserDetailsService jwtUserDetailsService;
 
     @Operation(summary = "Get all rentals", description = "This get all the rentals in database to display them on a page.", tags = "Get")
@@ -57,7 +57,7 @@ public class RentalController {
     public RentalResponse createDental(@ModelAttribute RentalDTO rentalDTO){
 
         Rental new_rental = rentalMapper.RentalDTOToRental(rentalDTO);
-        
+
         //We now need owner_ID, created_at, updated_at
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User my_user = jwtUserDetailsService.loadUserByUsername(username);
