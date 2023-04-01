@@ -36,8 +36,20 @@ public class SecurityConfiguration  {
                 .authorizeHttpRequests(auth -> {
                     try {
                         auth
-                                .requestMatchers("/api/auth/login", "/api/auth/register",
-                                        "/api/auth/me").permitAll()
+                                .requestMatchers("/api/auth/login",
+                                        "/api/auth/register",
+                                        "/api/auth/me",
+                                        "/v2/api-docs",
+                                        "/v3/api-docs/**",
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/swagger-resources",
+                                        "/swagger-resources/**",
+
+                                        "/configuration/ui",
+                                        "/configuration/security",
+                                        "/webjars/**"
+                                        ).permitAll()
                                 // all other requests need to be authenticated
                                 .anyRequest().authenticated().and()
                                         // make sure we use stateless session; session won't be used to
