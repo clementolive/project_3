@@ -1,10 +1,10 @@
-package com.project3.auth;
+package com.project3.services.auth;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 
 /** This filter compare user from Database with User field from JWT token.
  * Then JwtTokenUtil can validate or not the token. */
-@Component
+@Service
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired

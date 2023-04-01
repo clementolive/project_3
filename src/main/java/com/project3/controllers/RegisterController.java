@@ -1,7 +1,7 @@
 package com.project3.controllers;
 
-import com.project3.auth.JwtTokenUtil;
-import com.project3.auth.JwtUserDetailsService;
+import com.project3.services.auth.JwtTokenUtil;
+import com.project3.services.auth.JwtUserDetailsService;
 import com.project3.dtos.UserDTO;
 import com.project3.entities.User;
 import com.project3.mappers.UserMapper;

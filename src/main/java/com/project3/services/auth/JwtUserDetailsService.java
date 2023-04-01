@@ -1,4 +1,4 @@
-package com.project3.auth;
+package com.project3.services.auth;
 
 import com.project3.entities.User;
 import com.project3.repositories.UserRepository;

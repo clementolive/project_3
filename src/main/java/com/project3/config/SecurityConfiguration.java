@@ -1,6 +1,6 @@
 package com.project3.config;
 
-import com.project3.auth.JwtRequestFilter;
+import com.project3.services.auth.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

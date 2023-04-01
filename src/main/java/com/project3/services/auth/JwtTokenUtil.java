@@ -1,4 +1,4 @@
-package com.project3.auth;
+package com.project3.services.auth;
 
 import java.io.Serial;
 import java.io.Serializable;
