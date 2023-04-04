@@ -12,10 +12,8 @@ import com.project3.services.auth.JwtUserDetailsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.net.URI;
 import java.util.Date;
@@ -78,7 +76,6 @@ public class RentalController {
 
         //Creating and saving picture URL
         new_rental.setPicture(String.valueOf(URI.create("http://localhost:4200/api/images/" + rentalDTO.getPicture().getOriginalFilename())));
-
 
         return rentalService.save(new_rental);
     }

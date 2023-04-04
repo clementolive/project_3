@@ -16,10 +16,8 @@ public class MessageController {
     @Operation(summary = "Posts a message", description = "Posts a message for contacting a rental owner.", tags="Post")
     @PostMapping("/api/messages")
     public MessageResponse send(@RequestBody MessageRequestDTO request){
-        //Sending message (service -> repo -> DB)
         messageService.sendMessage(request);
 
-        //Response
         MessageResponse messageResponse = new MessageResponse();
         messageResponse.setMessage("Message send with success");
         return messageResponse;

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
     @Autowired
     UserService userService;
-    @Autowired // Loads user from DB
+    @Autowired
     JwtUserDetailsService userDetailsService;
     @Autowired
     JwtTokenUtil jwtTokenUtil;

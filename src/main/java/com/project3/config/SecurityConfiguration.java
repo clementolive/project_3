@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/** This security configuration allows access to login and register pages, and Swagger documentation.
+/** This security configuration allows access to log in and register pages, and Swagger documentation.
  * api/auth/me is also needed in frontend logic.
  * All the other requests need JWT authentication.
  */
@@ -65,7 +65,6 @@ public class SecurityConfiguration  {
                 .formLogin().disable()
                 .build();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder(){
