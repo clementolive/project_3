@@ -6,13 +6,18 @@ import com.project3.entities.User;
 import com.project3.mappers.RentalMapper;
 import com.project3.models.RentalResponse;
 import com.project3.models.RentalsResponse;
+import com.project3.services.FilesStorageService;
 import com.project3.services.RentalService;
 import com.project3.services.auth.JwtUserDetailsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.net.URI;
 import java.util.Date;
 
 @RestController
@@ -23,6 +28,8 @@ public class RentalController {
     RentalMapper rentalMapper;
     @Autowired
     JwtUserDetailsService jwtUserDetailsService;
+    @Autowired
+    FilesStorageService storageService;
 
     @Operation(summary = "Get all rentals", description = "This get all the rentals in database to display them on a page.", tags = "Get")
     @GetMapping("/api/rentals")
@@ -54,7 +61,7 @@ public class RentalController {
     @Operation(summary = "Creates a rental", description = "Creates a new rental to display, with name, surface, price, description and picture.",
             tags = "Post")
     @PostMapping(path = "/api/rentals")
-    public RentalResponse createDental(@ModelAttribute RentalDTO rentalDTO){
+    public RentalResponse createDental(@ModelAttribute RentalDTO rentalDTO) throws IOException {
 
         Rental new_rental = rentalMapper.RentalDTOToRental(rentalDTO);
 
@@ -66,8 +73,14 @@ public class RentalController {
         new_rental.setCreated_at(new Date());
         new_rental.setUpdated_at(new Date());
 
+        //Saving picture in server
+        storageService.save(rentalDTO.getPicture());
+
+        //Creating and saving picture URL
+        new_rental.setPicture(String.valueOf(URI.create("http://localhost:8080/api/images/" + rentalDTO.getPicture().getOriginalFilename())));
+
+
         return rentalService.save(new_rental);
     }
-
 
 }
