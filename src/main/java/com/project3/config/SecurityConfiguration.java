@@ -52,7 +52,9 @@ public class SecurityConfiguration  {
                                         // make sure we use stateless session; session won't be used to
                                         // store user's state.
                                 .sessionManagement()
-                                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                                .and()
+                                .csrf().disable();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

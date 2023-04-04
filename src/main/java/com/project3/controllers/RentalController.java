@@ -77,7 +77,7 @@ public class RentalController {
         storageService.save(rentalDTO.getPicture());
 
         //Creating and saving picture URL
-        new_rental.setPicture(String.valueOf(URI.create("http://localhost:8080/api/images/" + rentalDTO.getPicture().getOriginalFilename())));
+        new_rental.setPicture(String.valueOf(URI.create("http://localhost:4200/api/images/" + rentalDTO.getPicture().getOriginalFilename())));
 
 
         return rentalService.save(new_rental);
