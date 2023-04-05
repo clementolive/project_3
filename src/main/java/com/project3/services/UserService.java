@@ -21,7 +21,7 @@ public class UserService {
 
     public User addNewUser(RegisterRequest request) {
         User user = new User(request.getEmail(), request.getName(), encoder.encode(request.getPassword()));
-        userRepository.save(user);
+        user = userRepository.save(user);
         return user;
     }
 
