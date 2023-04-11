@@ -35,6 +35,8 @@ This is a layer-based architecture, Controller-Service-Repository-Database.
 
 3. Setup the frontend : 
 - git clone https://github.com/OpenClassrooms-Student-Center/Developpez-le-back-end-en-utilisant-Java-et-Spring
+- You need to check this pull request, because default code redirects instantly when accessing rental creation form : 
+https://github.com/OpenClassrooms-Student-Center/Developpez-le-back-end-en-utilisant-Java-et-Spring/pull/1/commits/f648ab800b1926bb491382ba062e3ff76ad84add
 - open terminal in project folder
 - install node modules with "npm install"
 - run "ng serve"
