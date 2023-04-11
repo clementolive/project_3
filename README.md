@@ -39,3 +39,8 @@ This is a layer-based architecture, Controller-Service-Repository-Database.
 - install node modules with "npm install"
 - run "ng serve"
 
+4. Test the app 
+- Run the associated Postman files in Postman from Openclassroom project page.
+- Or test manually on the adress http://localhost:4200/rentals
+- You should get a JWT token on login or register. Use this token in headers to authenticate in any request. 
+
