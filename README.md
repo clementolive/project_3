@@ -24,8 +24,18 @@ The development involved Postman to test the API.
 ## File structure 
 This is a layer-based architecture, Controller-Service-Repository-Database.
 
-## How to use 
-git clone, and run. 
-You will need a local database called rentals on port 3306
-Change database credentials as needed, in application.properties
-This is backend is intended to be used with this Angular frontend https://github.com/OpenClassrooms-Student-Center/Developpez-le-back-end-en-utilisant-Java-et-Spring
+## How to use
+1. Setup your database :
+- Setup an empty database called "rentals" on port 3306 with any software (Wamp, command line...) 
+
+2. Setup the backend : clone this repository 
+- git clone https://github.com/achmoye/project_3_spring
+- Open in your IDE, open Application.java in a tab and right click -> run 
+- Change database credentials as needed, in application.properties
+
+3. Setup the frontend : 
+- git clone https://github.com/OpenClassrooms-Student-Center/Developpez-le-back-end-en-utilisant-Java-et-Spring
+- open terminal in project folder
+- install node modules with "npm install"
+- run "ng serve"
+
