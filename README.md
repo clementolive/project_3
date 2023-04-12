@@ -47,8 +47,12 @@ https://github.com/OpenClassrooms-Student-Center/Developpez-le-back-end-en-utili
 
 4. Test the app 
 - Run the associated Postman files in Postman from Openclassroom project page. You will need some changes in the JSON (or follow this link : https://api.postman.com/collections/26119928-5373f50a-bd58-470f-9474-f11f32a62863?access_key=PMAT-01GXS04JCZBWPQ0SPTY82H1ZNN)
-- changed "email" instead of "login" in /login route. 
+I needed the following changes to make it work : 
+- changed "email" instead of "login" in /login route. (check Angular form) 
 - removed Authorization Inherited from /register route. No JWT token should be sent when registering. 
+- "Lorem ipsum" description is too long in PUT request, and also in /create request. 
+- There is no slash in the end of api/messages (check src/app/features/rentals/messages.sercive.ts in Angular) 
+- Same way, no "/1" at the end of api/rentals for CREATE request. Remember to add a picture in the request body. 
 
 - Or test manually on the adress http://localhost:4200/rentals
 - You should get a JWT token on login or register. Use this token in headers to authenticate in any request. 
