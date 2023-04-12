@@ -27,6 +27,10 @@ This is a layer-based architecture, Controller-Service-Repository-Database.
 ## How to use
 1. Setup your database :
 - Setup an empty database called "rentals" on port 3306 with any software (Wamp, command line...) 
+For example with Wamp : 
+- Download it here https://www.wampserver.com, install it and launch it 
+- Go to http://localhost:8081/phpmyadmin/ with default credentials 
+- Create the empty database "rentals" 
 
 2. Setup the backend : clone this repository 
 - git clone https://github.com/achmoye/project_3_spring
